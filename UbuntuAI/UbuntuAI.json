@@ -1,0 +1,20 @@
+{
+  "name": "UbuntuAI",
+  "version": "1.0.0",
+  "authors": [
+    "Khomotso Kumalo",
+    "Siphamandla Mazibuko",
+    "Malaika Kamangu"
+  ],
+  "description": "A strategic bot with adaptive tactics and efficient energy management.",
+  "homepage": "https://github.com/YourfavCompSciGirlie/UbuntuAI",
+  "countryCodes": ["za"],
+  "platform": "JVM",               
+  "programmingLang": "Java 21",       
+  "bodyColor": "#34A853",          
+  "turretColor": "#4285F4",       
+  "gunColor": "#FF9800",         
+  "radarColor": "#F44336",        
+  "bulletColor": "#9C27B0",       
+  "scanColor": "#3F51B5"         
+}
