@@ -1,6 +1,3 @@
-// import java.awt.geom.*;
-import java.util.*;
-
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
 import dev.robocode.tankroyale.botapi.graphics.Color;
@@ -8,10 +5,7 @@ import dev.robocode.tankroyale.botapi.graphics.Color;
 // ------------------------------------------------------------------
 // UbuntuAI
 // ------------------------------------------------------------------
-// A sample bot original made for Robocode by Mathew Nelson.
-//
-// Probably the first bot you will learn about.
-// Moves in a seesaw motion and spins the gun around at each end.
+// 
 // ------------------------------------------------------------------
 public class UbuntuAI extends Bot {
 
@@ -30,9 +24,7 @@ public class UbuntuAI extends Bot {
 
         while (isRunning()) {
             operate(operating_mode);
-            setTurnRight(10_000);
-            setMaxSpeed(3);
-            forward(5000);
+            turnGunRight(bearingTo(0, 0));
 
             int enemies = getEnemyCount();
             System.out.println(enemies);
@@ -55,6 +47,8 @@ public class UbuntuAI extends Bot {
         if (getEnergy() > 70) {
             if (distanceToEnemy < 200) {
                 // if bot is close and we have high energy, shoot at 3
+                turnRight(directionTo(e.getX(), getY()));
+                forward(100);
                 fire(3);
             } else {
                 // if bot is far and we have high energy, shoot at 1
@@ -74,20 +68,13 @@ public class UbuntuAI extends Bot {
 
     public void operate(String operating_mode) {
         if (operating_mode == "DEF") {
-            // defend
+            turnRight(directionTo(0, 0));
+            forward(distanceTo(0, 0) - 200);
+            turnRight(directionTo(0, getArenaWidth()));
         } else if (operating_mode == "ATK") {
-            // attack
+            turnRight(directionTo(0, 0));
+            forward(distanceTo(0, 0) - 200);
+            turnRight(directionTo(0, getArenaWidth()));
         }
-    }
-
-    public void findCorner() {
-        Map<String, Double> distances = new HashMap<>();
-        distances.put("TL", distanceTo(0, 0));
-        distances.put("BL", distanceTo(0, getArenaHeight()));
-        distances.put("BR", distanceTo(getArenaWidth(), getArenaHeight()));
-        distances.put("TR", distanceTo(getArenaWidth(), 0));
-
-        
-
     }
 }
