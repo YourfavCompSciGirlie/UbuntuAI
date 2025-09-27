@@ -10,7 +10,7 @@
   "homepage": "https://github.com/YourfavCompSciGirlie/UbuntuAI",
   "countryCodes": ["za"],
   "platform": "JVM",               
-  "programmingLang": "Java",       
+  "programmingLang": "Java 21",       
   "bodyColor": "#34A853",          
   "turretColor": "#4285F4",       
   "gunColor": "#FF9800",         

@@ -1,5 +1,6 @@
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
+import dev.robocode.tankroyale.botapi.graphics.Color;
 
 // ------------------------------------------------------------------
 // UbuntuAI
@@ -19,12 +20,19 @@ public class UbuntuAI extends Bot {
     // Called when a new round is started -> initialize and do some movement
     @Override
     public void run() {
+        setBodyColor(Color.BLACK);
+        setTurretColor(Color.BLACK);
+        setRadarColor(Color.BLUE);
+        setScanColor(Color.RED);
+
         // Repeat while the bot is running
         while (isRunning()) {
-            forward(100);
-            turnGunLeft(360);
-            back(100);
-            turnGunLeft(360);
+            // Tell the game that when we take move, we'll also want to turn right... a lot
+            setTurnRight(10_000);
+            // Limit our speed to 5
+            setMaxSpeed(3);
+            // Start moving (and turning)
+            forward(5000);
         }
     }
 
